@@ -1,0 +1,23 @@
+//
+// ## Code
+//
+
+pre {
+  padding: 6px 8px;
+  background-color: #ffeedd;
+  border-radius: 4px;
+  border: 1px solid darken(#ffeedd, 5%);
+
+  > code {
+    border: none;
+  }
+}
+
+code {
+  padding: 2px 4px;
+  background-color: #ffeedd;
+  font-family: Menlo, Monaco, "DejaVu Sans Mono", Consolas, "Liberation Mono", monospace;
+  @include unit-size("font-size", $base-font-size * 0.75);
+  border: 1px solid darken(#ffeedd, 5%);
+  border-radius: 4px;
+}

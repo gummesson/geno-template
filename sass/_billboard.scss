@@ -1,0 +1,44 @@
+//
+// ## Billboard
+//
+// Fancy, boxed off content.
+//
+// 1. Sticky footer hack.
+//
+.billboard {
+  width: 100%;
+  background-color: $base-ui-color;
+
+  @include modifier("head") {
+    border-bottom: 4px solid darken($base-ui-color, 7.5%);
+  }
+
+  @include modifier("foot") {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    @include unit-size("height", $base-spacing-unit * 3.25); // [1]
+    border-top: 4px solid darken($base-ui-color, 7.5%);
+  }
+
+  @include element("title") {
+    @include unit-size("margin-top", $base-spacing-unit / 2);
+    @include unit-size("margin-bottom", $base-spacing-unit / 2);
+    @include unit-size("font-size", $base-font-size * 3);
+    color: $comp-ui-color;
+  }
+
+  @include element("print") {
+    color: $base-bg-color;
+  }
+
+  @include element("link") {
+    color: $comp-ui-color;
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: $base-bg-color;
+    }
+  }
+}

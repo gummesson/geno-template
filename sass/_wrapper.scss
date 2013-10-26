@@ -1,0 +1,13 @@
+//
+// ## Wrapper
+//
+
+.wrapper {
+  margin: 0 auto;
+  @include unit-size("max-width", 40rem);
+
+  @include modifier("banner") {
+    text-align: center;
+  }
+}
+

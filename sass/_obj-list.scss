@@ -1,0 +1,24 @@
+//
+// ## Object list
+//
+// A list which contains a "key" and a "value".
+//
+// **Usage:**
+//
+//     <ul class="obj-list">
+//       <li>
+//         <span class="obj-list__key">Key:</span>
+//         <span class="obj-list__value">value</span>
+//       </li>
+//     </ul>
+//
+.obj-list {
+  list-style-type: square;
+
+  @include element("key") {
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  @include element("value") {}
+}

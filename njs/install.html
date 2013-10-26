@@ -1,0 +1,9 @@
+        <h2>Installation</h2>
+        {% if preferGlobal -%}
+          <pre><code>npm install -g {{ name }}</code></pre>
+        {% else -%}
+          <pre><code>npm install {{ name }}</code></pre>
+        {% endif -%}
+        {% if installation -%}
+          {{ installation }}
+        {% endif -%}

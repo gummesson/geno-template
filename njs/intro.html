@@ -1,0 +1,18 @@
+  <article class="page">
+    <div class="island">
+      <div class="wrapper">
+      {% if title -%}
+        <h1>{{ title }}</h1>
+      {% else -%}
+        <h1>{{ name }}</h1>
+      {% endif -%}
+      {% if introduction -%}
+        {{ introduction }}
+      {% else -%}
+        <p>{{ description }}</p>
+      {% endif -%}
+      {% if docco -%}
+        <p>
+          <a href="{{ docco }}">The annotated source code is available</a>.
+        </p>
+      {% endif -%}

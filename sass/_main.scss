@@ -1,0 +1,48 @@
+//
+// ## Main
+//
+
+// ### Universal
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background-color: darken($base-ui-color, 10%);
+  color: $base-bg-color;
+}
+
+-moz-::selection {
+  background-color: darken($base-ui-color, 10%);
+  color: $base-bg-color;
+}
+
+// ### HTML
+//
+// 1. Sticky footer hack.
+//
+html {
+  position: relative; // [1]
+  min-height: 100%; // [1]
+  font: #{to-ems($base-font-size)}/#{$base-line-height} #{$base-font-family};
+
+  @include breakpoint("lap") {
+    font-size: to-ems($base-font-size * 1.125);
+  }
+
+  @include breakpoint("desk") {
+    font-size: to-ems($base-font-size * 1.25);
+  }
+}
+
+// ### Body
+//
+// 1. Sticky footer hack.
+//
+body {
+  @include unit-size("margin-bottom", $base-spacing-unit * 3.25); // [1]
+  background-color: $base-bg-color;
+  @include unit-size("font-size", $base-font-size);
+  color: $base-font-color;
+}

@@ -1,0 +1,7 @@
+//
+// ## Print
+//
+
+.print--small {
+  @include unit-size("font-size", 0.875rem);
+}

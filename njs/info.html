@@ -1,0 +1,45 @@
+        <h2>Information</h2>
+        <ul class="obj-list">
+          <li>
+            <span class="obj-list__key">Version:</span> {{ version }}
+          </li>
+          {% if author -%}
+          <li>
+            <span class="obj-list__key">Author:</span> {{ author }}
+          </li>
+          {% endif -%}
+          <li>
+            <span class="obj-list__key">License:</span>
+            {% if licenses -%}
+              <a href="{{ licenses.url }}">{{ licenses.type }}</a>
+            {% else -%}
+              <a href="http://opensource.org/licenses/{{ license }}">{{ license }}</a>
+            {% endif -%}
+          </li>
+          {% if repository -%}
+            {% if repository.url -%}
+            <li>
+              <span class="obj-list__key">Repository:</span> <a href="{{ repository.url }}">{{ repository.type }}</a>
+            </li>
+            {% endif -%}
+          {% endif -%}
+          <li>
+            <span class="obj-list__key">Registry:</span> <a href="https://npmjs.org/package/{{ name }}">{{ name }}</a>
+          </li>
+          {% if keywords -%}
+          <li>
+            <span class="obj-list__key">Keywords:</span>
+            {% for keyword in keywords | sort -%}
+              <a href="https://npmjs.org/browse/keyword/{{ keyword }}">{{ keyword }}</a>{% if loop.last %}{% else %}, {% endif %}
+            {% endfor -%}
+          </li>
+          {% endif -%}
+          {% if dependencies -%}
+            <li>
+            <span class="obj-list__key">Dependencies:</span>
+            {% for depname, depversion in dependencies | dictsort -%}
+              <a href="https://npmjs.org/package/{{ depname }}">{{ depname }}</a>{% if loop.last %}{% else %}, {% endif %}
+            {% endfor -%}
+            </li>
+          {% endif -%}
+        </ul>

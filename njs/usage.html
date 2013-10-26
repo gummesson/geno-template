@@ -1,0 +1,9 @@
+        {% if usage -%}
+        <h2>Usage</h2>
+          {{ usage }}
+          {% if repository -%}
+            {% if repository.url -%}
+            <p>For more information, go to <a href="{{ repository.url }}">the source code repository</a>.</p>
+            {% endif -%}
+          {% endif -%}
+        {% endif -%}

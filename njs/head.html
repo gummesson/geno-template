@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  {% if title -%}
+  <title>{{ title }}</title>
+  {% else -%}
+  <title>{{ name }}</title>
+  {% endif -%}
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link href="style.css" rel="stylesheet">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <header class="billboard  billboard--head">
+    <div class="island">
+      <div class="wrapper  wrapper--banner">
+        <h1 class="billboard__title">
+          <a class="billboard__link  link--hidden" href="/">
+          {% if title -%}
+            {{ title }}
+          {% else -%}
+            {{ name }}
+          {% endif -%}
+          </a>
+        </h1>
+        <p class="billboard__print">
+          {{ description }}
+        </p>
+      </div>
+    </div>
+  </header>

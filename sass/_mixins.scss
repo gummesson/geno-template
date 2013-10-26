@@ -1,0 +1,99 @@
+// ## Mixins
+
+// ### BEM
+//
+// Create BEM-styled class names, ie: `block__element` and `block--modifier`.
+//
+// - `$name` is a class name.
+//
+// **Usage:**
+//
+//     .block {
+//       @include element("element") { ... }
+//       @include modifier("modifier") { ... }
+//     }
+//
+// **Output:**
+//
+//     .block { ... }
+//     .block__element { ... }
+//     .block--modifier { ... }
+//
+@mixin element($name) {
+  @at-root #{&}__#{$name} {
+    @content;
+  }
+}
+
+@mixin modifier($name) {
+  @at-root #{&}--#{$name} {
+    @content;
+  }
+}
+
+// ### Unit size
+//
+// Create a property sized with a rem value and a pixel fallback.
+//
+// - `$property` is a CSS property.
+// - `$rem`      is a rem value.
+//
+// **Usage:**
+//
+//     .block {
+//       @include unit-size("padding", 1.5rem);
+//     }
+//
+// **Output:**
+//
+//     .block {
+//       padding: 24px;
+//       padding: 1.5rem;
+//     }
+//
+@mixin unit-size($property, $rem) {
+  #{$property}: to-pixels($rem);
+  #{$property}: $rem;
+}
+
+@function to-pixels($rem) {
+  @return unquote(((16 * $rem) / 1rem) + "px");
+}
+
+@function to-ems($rem) {
+  @return unquote(($rem / 1rem) + "em");
+}
+
+// ### Breakpoint
+//
+// Create a `@media` block with the `min-width` set to the matching width.
+//
+// - `$name` is a name that matches a variable.
+//
+// **Usage:**
+//
+//     .block {
+//       @include breakpoint("lap") { ... }
+//     }
+//
+// **Output:**
+//
+//     @media screen and (min-width: [WIDTH]) {
+//       .block { ... }
+//     }
+//
+@mixin breakpoint($name) {
+  @if ($name == "lap") {
+    @media screen and (min-width: $breakpoint-lap) {
+      @content;
+    }
+  }
+  @else if ($name == "desk") {
+    @media screen and (min-width: $breakpoint-desk) {
+      @content;
+    }
+  }
+  @else {
+    @warn "No breakpoint found.";
+  }
+}
