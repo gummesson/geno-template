@@ -8,17 +8,15 @@
 .billboard {
   width: 100%;
   background-color: $base-ui-color;
+  border-bottom: 4px solid darken($base-ui-color, 7.5%);
 
-  @include modifier("head") {
-    border-bottom: 4px solid darken($base-ui-color, 7.5%);
-  }
+  @include modifier("head") {}
 
   @include modifier("foot") {
     position: absolute;
     left: 0;
     bottom: 0;
     @include unit-size("height", $base-spacing-unit * 3.25); // [1]
-    border-top: 4px solid darken($base-ui-color, 7.5%);
   }
 
   @include element("title") {
